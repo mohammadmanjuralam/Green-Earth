@@ -4,6 +4,114 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- daisyUI AND Tailwind css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- style css -->
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- navbar -->
+
+    <div class="navbar bg-[#15803D] shadow-sm text-white h-[91px] px-20">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <li><a>Item 1</a></li>
+            <li>
+              <a>Parent</a>
+              <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul>
+            </li>
+            <li><a>Item 3</a></li>
+          </ul>
+        </div>
+        <a class="font-bold text-xl">Green Earth</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a>About</a></li>
+          <li><a>Gallery</a></li>
+          <li><a>Plant a Tree</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15]">
+          Plant a Tree
+        </button>
+      </div>
+    </div>
+
+    <!-- Banner-section -->
+    <section
+      class="h-[320px] bg-[#CFF0DC] flex justify-between items-center overflow-hidden"
+    >
+      <div>
+        <img src="./assets/hero-leaf1.png" alt="" />
+      </div>
+      <div class="flex flex-col items-center">
+        <h1 class="font-bold text-[30px]">Plant a Tree, Grow a Future</h1>
+        <p class="text-center mt-[8px]">
+          Join our mission to plant 1 million trees and make the Earth greener
+          for future generations.
+        </p>
+        <button class="btn rounded-3xl text-[#15803D] bg-[#FACC15] mt-[24px]">
+          Get Involved
+        </button>
+      </div>
+      <div><img src="./assets/hero-leaf2.png" alt="" /></div>
+    </section>
+
+    <!-- hero-card-section -->
+    <section>
+      <h1 class="font-bold text-center text-2xl">Choose Your Trees</h1>
+      <div class="all-section-container">
+        <div class="catagories-container"></div>
+        <div class="card-container"></div>
+        <div class="cart-container"></div>
+      </div>
+    </section>
+    <!-- js-script -->
+    <script src="./custom.js"></script>
+  </body>
 </html>
