@@ -28,13 +28,14 @@ const loadCategories = () => {
       `;
 
       // All Trees Button
+
       const allBtn = document.createElement("p");
       allBtn.textContent = "All Trees";
       allBtn.className =
-        "category-item mt-2 rounded-md py-2 text-center pl-5 lg:text-left cursor-pointer bg-green-700 text-white hover:bg-green-700";
+        "category-item mt-2 rounded-md py-2 text-center pl-5 lg:text-left cursor-pointer hover:bg-green-700 hover:text-white";
       allBtn.onclick = () => {
         loadCard();
-        setActiveCategory(allBtn);
+        setActiveCategory(allBtn); // click করলে active হবে
       };
       categoriesDiv.appendChild(allBtn);
 
