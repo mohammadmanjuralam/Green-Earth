@@ -98,7 +98,10 @@
       <div><img src="./assets/hero-leaf2.png" alt="" /></div>
     </section>
     <h1 class="font-bold text-center text-[30px] my-6">Choose Your Trees</h1>
-    <div class="flex p-5 gap-5">
+    <!-- category + card + cart -->
+    <div
+      class="flex flex-col lg:flex-row p-5 gap-5 items-center justify-between lg:items-start lg:justify-center"
+    >
       <div id="categories" class="w-48 p-3 rounded"></div>
       <div
         id="card-cont"
@@ -124,10 +127,10 @@
       </h1>
       <div
         style="margin-bottom: 50px"
-        class="flex justify-center items-center gap-10 mt-10"
+        class="flex flex-col-reverse lg:flex-row justify-center items-center gap-10 mt-10"
       >
         <img class="w-[530px] h-[530px]" src="./assets/about.png" alt="" />
-        <div>
+        <div class="flex flex-col p-5 gap-5">
           <p>
             Green Earth is a global tree plantation initiative dedicated to
             fighting <br />
@@ -149,13 +152,11 @@
     <section
       class="bg-[#CFF0DC] w-full h-[436px] flex justify-center items-center flex-col"
     >
-      <h1 style="margin-bottom: 20px; font-size: 30px; font-weight: bold">
-        Our Impact
-      </h1>
-      <div class="flex justify-around gap-8">
+      <h1 class="text-[30px] font-bold">Our Impact</h1>
+      <div class="flex flex-col lg:flex-row justify-around gap-8 pb-25 lg:pb-0">
         <div>
           <div
-            class="w-[350px] h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
+            class="w-[350px] h-[80px] lg:h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
           >
             <h1 class="text-[#15803D] font-bold text-[30px]">500K+</h1>
             <p>Trees Planted</p>
@@ -164,7 +165,7 @@
 
         <div>
           <div
-            class="w-[350px] h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
+            class="w-[350px] h-[80px] lg:h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
           >
             <h1 class="text-[#15803D] font-bold text-[30px]">120+</h1>
             <p>Communities Involved</p>
@@ -173,7 +174,7 @@
 
         <div>
           <div
-            class="w-[350px] h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
+            class="w-[350px] h-[80px] lg:h-[120px] bg-white flex justify-center items-center flex-col rounded-md"
           >
             <h1 class="text-[#15803D] font-bold text-[30px]">30+</h1>
             <p>Countries Reached</p>
@@ -189,23 +190,23 @@
         Plant a Tree Today
       </h1>
       <div
-        class="flex justify-center items-center flex-col gap-5 bg-[#15803D] w-[530px] h-[270px] rounded-md"
+        class="flex justify-center items-center flex-col gap-5 bg-[#15803D] w-[80%] lg:w-[38%] h-[270px] rounded-md"
       >
         <input
           style="padding-left: 10px"
-          class="w-[450px] h-[48px] bg-white rounded-sm"
+          class="w-[82%] h-[48px] bg-white rounded-sm"
           type="text"
           placeholder="Your Name"
         />
         <input
           style="padding-left: 10px"
-          class="w-[450px] h-[48px] bg-white rounded-sm"
+          class="w-[82%] h-[48px] bg-white rounded-sm"
           type="email"
           placeholder="Your Email Address"
         />
         <input
           style="padding-left: 10px"
-          class="w-[450px] h-[48px] bg-white rounded-sm"
+          class="w-[82%] h-[48px] bg-white rounded-sm"
           type="number"
           placeholder="Number of Trees"
         />

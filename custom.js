@@ -28,7 +28,7 @@ const loadCategories = () => {
       const allBtn = document.createElement("p");
       allBtn.textContent = "All Trees";
       allBtn.className =
-        "hover:bg-[#15803D] mt-2 rounded-md py-2 pl-5 text-center lg:text-left hover:text-white cursor-pointer";
+        "hover:bg-[#15803D] mt-2  rounded-md py-2 pl-5 text-center lg:text-left hover:text-white cursor-pointer";
       allBtn.onclick = () => loadCard();
       categoriesDiv.appendChild(allBtn);
 
