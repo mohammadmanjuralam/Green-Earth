@@ -109,17 +109,18 @@
     </section>
     <!-- Categories + Cards + Cart -->
 
-    <h1 class="font-bold text-center text-[30px] mb-[100px]">
-      Choose Your Trees
-    </h1>
-    <div class="flex p-5 gap-5 mt-10 pt-10">
-      <div id="categories" class="w-48 bg-green-200 p-3 rounded"></div>
-      <div id="card-cont" class="grid lg:grid-cols-3 gap-5 flex-1"></div>
+    <h1 class="font-bold text-center text-[30px] my-6">Choose Your Trees</h1>
+    <div class="flex p-5 gap-5">
+      <div id="categories" class="w-48 p-3 rounded"></div>
+      <div
+        id="card-cont"
+        class="grid lg:grid-cols-3 gap-5 flex-1 inter-font"
+      ></div>
       <div id="cart" class="w-64 bg-white p-3 rounded">
         <h2 class="font-bold mb-3">Your Cart</h2>
         <ul id="cart-items" class="mb-3"></ul>
         <p class="text-right font-bold">
-          Total: <span id="cart-total">0.00</span>
+          Total: <span id="cart-total">0</span>
         </p>
       </div>
     </div>
@@ -230,6 +231,6 @@
       </p>
     </footer>
     <!-- JS -->
-    <script src="./practice.js"></script>
+    <script src="./custom.js"></script>
   </body>
 </html>
