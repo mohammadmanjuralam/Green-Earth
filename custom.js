@@ -22,26 +22,45 @@ const loadCategories = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
     .then((data) => {
-      const cats = data.categories || [];
-      categoriesDiv.innerHTML = `<h1 class="font-bold text-center lg:text-left mb-3">Categories</h1>`;
+      const catago = data.categories || [];
+      categoriesDiv.innerHTML = `
+        <h1 class="font-bold text-center lg:text-left pl-5">Categories</h1>
+      `;
 
+      // All Trees Button
       const allBtn = document.createElement("p");
       allBtn.textContent = "All Trees";
       allBtn.className =
-        "hover:bg-[#15803D] mt-2  rounded-md py-2 pl-5 text-center lg:text-left hover:text-white cursor-pointer";
-      allBtn.onclick = () => loadCard();
+        "category-item mt-2 rounded-md py-2 text-center pl-5 lg:text-left cursor-pointer bg-green-700 text-white hover:bg-green-700";
+      allBtn.onclick = () => {
+        loadCard();
+        setActiveCategory(allBtn);
+      };
       categoriesDiv.appendChild(allBtn);
 
-      cats.forEach((cat) => {
+      // Other categories
+      catago.forEach((cat) => {
         const p = document.createElement("p");
         p.textContent = cat.category_name;
         p.className =
-          "hover:bg-[#15803D] mt-2 rounded-md py-2 pl-5 text-center lg:text-left hover:text-white cursor-pointer";
-        p.onclick = () => loadCardsByCategory(cat.id);
+          "category-item mt-2 rounded-md px-5 py-2 text-center lg:text-left cursor-pointer hover:bg-green-700 hover:text-white";
+        p.onclick = () => {
+          loadCardsByCategory(cat.id);
+          setActiveCategory(p);
+        };
         categoriesDiv.appendChild(p);
       });
-    });
+    })
+    .catch((err) => console.error("Error loading categories:", err));
 };
+
+// -------------------- Set Active Category --------------------
+function setActiveCategory(clickedElement) {
+  document.querySelectorAll(".category-item").forEach((el) => {
+    el.classList.remove("bg-green-700", "text-white");
+  });
+  clickedElement.classList.add("bg-green-700", "text-white");
+}
 
 // -------------------- Load Cards --------------------
 const loadCard = () => {
@@ -71,35 +90,29 @@ const displayCards = (plants) => {
   cardContainer.innerHTML = "";
   plants.forEach((plant) => {
     const card = document.createElement("div");
-    card.classList.add("lg:w-[300px]", "w-[350px]");
-    card.style.backgroundColor = "white";
-    card.style.borderRadius = "15px";
-    card.style.display = "flex";
-    card.style.padding = "10px";
-    card.style.flexDirection = "column";
-    card.style.alignItems = "center";
-    card.style.margin = "auto";
+    card.className =
+      "lg:w-[300px] w-[350px] bg-white rounded-[15px] flex flex-col items-center p-3 m-auto";
 
     card.innerHTML = `
       <img src="${
         plant.image
-      }" style="border-radius:15px;margin-top:10px;width:90%;height:180px;object-fit:cover;">
-      <div>
+      }" class="rounded-[15px] mt-2 w-[90%] h-[180px] object-cover">
+      <div class="w-full">
         <h2 class="mb-3">
-          <button style="margin-left:15px;" class="font-bold mt-2 self-start cursor-pointer" onclick="openPlantModal('${
+          <button class="font-bold mt-2 self-start cursor-pointer" onclick="openPlantModal('${
             plant.id
           }')">${plant.name}</button>
         </h2>
-        <p style="padding-left:10px;" class="text-[10px] text-left mb-2 h-[70px] overflow-hidden">${
+        <p class="text-[10px] text-left mb-2 h-[70px] overflow-hidden pl-2">${
           plant.description || "No description"
         }</p>
-        <div class="flex justify-between px-2  text-sm mb-2">
-          <span class="bg-[#DCFCE7] text-[#15803D] rounded-lg px-3">${
+        <div class="flex justify-between px-2 text-sm mb-2">
+          <span class="bg-green-100 text-green-700 rounded-lg px-3">${
             plant.category
           }</span>
           <span>Price: $${parseFloat(plant.price)}</span>
         </div>
-        <button style="width:100%; margin-top:10px; margin-bottom:10px; background-color:#15803D; color:white; padding:5px 0; border-radius:50px;" 
+        <button class="w-full mt-2 mb-2 bg-green-700 text-white py-1 rounded-full" 
           onclick='addToCart({id:"${plant.id}", name:"${
       plant.name
     }", price:${parseFloat(plant.price || 0)}})'>
@@ -121,7 +134,7 @@ function openPlantModal(id) {
       div.innerHTML = `
         <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
           <div class="modal-box flex flex-col gap-5">
-            <h3 class="text-lg font-bold ">${plant.name}</h3>
+            <h3 class="text-lg font-bold">${plant.name}</h3>
             <img class="rounded-[15px] w-[500px] h-[300px]" src="${
               plant.image
             }" />
@@ -153,6 +166,7 @@ function addToCart(item) {
   cart.push(item);
   total += parseFloat(item.price || 0);
   updateCartUI();
+  alert(`${item.name} tree has been added to cart`);
 }
 
 function removeFromCart(index) {
@@ -181,6 +195,6 @@ function updateCartUI() {
   cartTotal.textContent = `৳${total.toFixed(0)}`;
 }
 
+// -------------------- Init --------------------
 loadCategories();
 loadCard();
-s;
